@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biskra Health Guide</title>
+  <link rel="stylesheet" href="memoir.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init('A4HVxPE7kGwaCjhAL');
+  </script>
+</head>
+
+<body>
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      BISKRA <span>HEALTH</span> GUIDE<br>
+      <small style="color: #c24a3b;">-ALGERIA-</small>
+    </div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#service">Services</a>
+      <a href="#doctor">Doctors</a>
+      <a href="#messenger">Contact</a>
+    </nav>
+    <button class="login-button" id="login-btn">Login</button>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="page-section active">
+    <div class="slideshow-container">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="https://i.pinimg.com/736x/d3/94/30/d39430f3725b1faa6922cd98e0ce4b02.jpg">
+        </div>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118" alt="Doctor Consultation">
+        </div>
+      </div>
+    </div>
+
+    <div class="dots" id="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+    </div>
+
+    <section class="doctor-search">
+      <div class="form-container">
+        <h2>Find Your Doctor</h2>
+        <form id="doctor-form">
+          <input type="text" name="firstName" placeholder="First Name" required>
+          <input type="text" name="lastName" placeholder="Last Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <select name="specialty" id="specialty-select" required>
+            <option value="" disabled selected>Choose Specialty</option>
+            <option value="dentist">Dentist</option>
+            <option value="cardiologist">Cardiologist</option>
+            <option value="dermatologist">Dermatologist</option>
+            <option value="orthopedic">Orthopedic</option>
+          </select>
+          <button type="submit">Find Your Doctor</button>
+        </form>
+      </div>
+
+      <div class="images-container" id="doctor-results">
+        <!-- Doctor results will appear here -->
+      </div>
+    </section>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="page-section">
+    <div class="content">
+      <h2>About Biskra Health Guide</h2>
+      <p>We are a premier healthcare platform dedicated to connecting patients with the best medical professionals in Biskra, Algeria. Our mission is to make quality healthcare accessible to everyone.</p>
+      
+      <!-- Social Media Links -->
+      <div class="social-media">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="service" class="page-section">
+    <div class="content">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🦷</div>
+          <h3>Dental Care</h3>
+          <p>Comprehensive dental services including checkups, cleanings, and cosmetic dentistry.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">❤️</div>
+          <h3>Cardiology</h3>
+          <p>Advanced heart care and cardiovascular treatments from specialist doctors.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧴</div>
+          <h3>Dermatology</h3>
+          <p>Skin care treatments for all conditions from acne to skin cancer detection.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🦴</div>
+          <h3>Orthopedics</h3>
+          <p>Bone and joint care including surgeries and rehabilitation services.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏥</div>
+          <h3>Emergency Care</h3>
+          <p>24/7 emergency medical services for urgent health situations.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3>Pediatrics</h3>
+          <p>Specialized healthcare services for infants, children, and adolescents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors Section -->
+  <section id="doctor" class="page-section">
+    <div class="doctor-search">
+      <div style="width: 100%; padding: 60px 20px;">
+        <h2 style="text-align: center; margin-bottom: 40px; color: #1d1b2f;">Our Medical Team</h2>
+        <div class="images-container" id="all-doctors">
+          <!-- All doctors will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Messenger Section -->
+  <section id="messenger" class="page-section">
+    <div class="messenger-container centered-form">
+      <h2>Contact Our Doctors</h2>
+      <form class="contact-form" id="contact-form">
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Your Phone Number">
+        <select required>
+          <option value="" disabled selected>Select Doctor</option>
+          <option>Dr. Amira Abbassi (Cardiologist)</option>
+          <option>Dr. Abdelrahmane Mekihal (Cardiologist)</option>
+          <option>Dr. Gherbi (Dentist)</option>
+          <option>Dr. Merabet Mohamed (Dentist)</option>
+          <option>Dr. Nadia Amrani (Dermatologist)</option>
+          <option>Dr. Karim Ben Ammar (Orthopedic)</option>
+        </select>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Appointment Section -->
+  <section id="appointment-section" class="page-section">
+    <button class="close-form-btn">&times;</button>
+    <div class="messenger-container">
+      <h2 style="text-align: center; color: #1d1b2f; margin-bottom: 30px;">Select Date & Time</h2>
+
+      <!-- Consultation Type -->
+      <div class="consultation-type-container">
+        <button class="consultation-type selected">Quick Chat<br><span>$8</span></button>
+        <button class="consultation-type">Video Call<br><span>$24</span></button>
+        <button class="consultation-type">face to face<br><span>$30</span></button>
+      </div>
+
+      <!-- Calendar Picker -->
+      <input type="text" id="appointment-date" class="calendar-input" placeholder="Select Date" readonly>
+
+      <!-- Time Slots -->
+      <div class="time-slots">
+        <h3>Morning</h3>
+        <div class="slot-group">
+          <button class="time-slot">08:30</button>
+          <button class="time-slot">09:00</button>
+          <button class="time-slot">09:30</button>
+          <button class="time-slot">10:00</button>
+          <button class="time-slot">10:30</button>
+          <button class="time-slot">11:00</button>
+        </div>
+        <h3>Afternoon</h3>
+        <div class="slot-group">
+          <button class="time-slot">14:00</button>
+          <button class="time-slot">14:30</button>
+          <button class="time-slot">15:00</button>
+          <button class="time-slot">15:30</button>
+          <button class="time-slot">16:00</button>
+        </div>
+      </div>
+
+      <!-- Continue Button -->
+      <div style="text-align: center; margin-top: 30px;">
+        <button class="continue-btn">Continue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Continue Form Section -->
+  <section id="continue-form" class="page-section">
+    <button class="close-form-btn">&times;</button>
+    <div class="messenger-container">
+      <h2 style="text-align: center; color: #1d1b2f; margin-bottom: 30px;">Complete Your Information</h2>
+    
+      <form id="patient-info-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</labeùl>
+            <input type="text" id="first-name" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" required>
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" min="1" max="120" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+      
+        <div style="text-align: center; margin-top: 30px;">
+          <button type="submit" class="continue-btnn">Continue</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Medical Questions Section -->
+  <section id="medical-questions" class="page-section">
+    <button class="close-form-btn">&times;</button>
+    <div class="medical-questions">
+      <h2>Medical Questionnaire</h2>
+      <div id="questions-container">
+        <!-- Questions will be loaded here based on specialty -->
+      </div>
+      <button class="submit-questions">Submit & Confirm Appointment</button>
+    </div>
+  </section>
+
+  <!-- Doctor Details Modal -->
+  <div class="doctor-modal" id="doctor-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="doctor-details" id="doctor-details-content">
+        <!-- Content will be loaded here by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Login/Register Cards Container -->
+  <div class="auth-container" id="auth-container">
+    <!-- Register Card -->
+    <div class="auth-card" id="register-card">
+      <button class="close-auth">&times;</button>
+      <h2>Create Account</h2>
+      <div class="social-login">
+        <button class="social-btn fb"><i class="fab fa-facebook-f"></i></button>
+        <button class="social-btn google"><i class="fab fa-google"></i></button>
+        <button class="social-btn in"><i class="fab fa-linkedin-in"></i></button>
+      </div>
+      <p class="divider">or use your email for registration</p>
+      <form id="register-form">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="auth-btn">SIGN UP</button>
+      </form>
+      <p class="switch-auth">Already have an account? <a href="#" id="show-login">Sign In</a></p>
+    </div>
+
+    <!-- Login Card -->
+    <div class="auth-card hidden" id="login-card">
+      <button class="close-auth">&times;</button>
+      <h2>Welcome Back!</h2>
+      <p>To keep connected with us please login with your personal info</p>
+      <div class="social-login">
+        <button class="social-btn fb"><i class="fab fa-facebook-f"></i></button>
+        <button class="social-btn google"><i class="fab fa-google"></i></button>
+        <button class="social-btn in"><i class="fab fa-linkedin-in"></i></button>
+      </div>
+      <p class="divider">or use your email account</p>
+      <form id="login-form">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <a href="#" class="forgot-password">Forgot your password?</a>
+        <button type="submit" class="auth-btn">SIGN IN</button>
+      </form>
+      <p class="switch-auth">Don't have an account? <a href="#" id="show-register">Sign Up</a></p>
+    </div>
+  </div>
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="memoir.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Health Chatbot Button -->
+<div class="chatbot-btn" id="chatbot-btn">
+  <i class="fas fa-comment-medical"></i>
+</div>
+
+<!-- Chatbot Modal -->
+<div class="chatbot-modal" id="chatbot-modal">
+  <div class="chatbot-header">
+    <h3>Biskra Health Guide Assistant</h3>
+    <button class="close-chatbot">&times;</button>
+  </div>
+  <div class="chatbot-body" id="chatbot-body">
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="bot-message">
+        Welcome to Biskra Health Guide! How can I assist you with healthcare in Biskra today?
+        Type 'help' to see what I can do.
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbot-input" placeholder="Ask me about doctors, symptoms, etc...">
+      <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
